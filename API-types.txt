@@ -49,3 +49,61 @@ Oauth.logheartbit (контроль статуса соединения)
 
 
 
+---------------- SOAP ----------------
+
+SOAP (Simple Object Access Protocol) — данные передаются в формате XML.
+Преимущества:
+- отраслевой стандарт по версии W3C;
+- наличие строгой спецификации;
+- широкая поддержка в продуктах Microsoft,
+- однозначность.
+
+Недостатки:
+- сложность реализации;
+- сложность/ресурсоемкость парсинга XML-данных.
+
+Любое сообщение в протоколе SOAP — это XML документ, состоящий из следующих элементов (тегов):
+--> Envelope. Корневой обязательный элемент. Определяет начало и окончание сообщения.
+--> Header. Необязательный элемент — заголовок. Содержит элементы, необходимые для обработки самого сообщения. Например, идентификатор сессии.
+--> Body. Основной элемент, содержит основную информацию сообщения. Обязательный.
+--> Fault. Элемент, содержащий информацию об ошибках, возникающих в процессе обработки сообщения. Необязательный.
+
+
+
+----- Пример SOAP-запроса на сервер интернет-магазина:
+
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+     <getProductDetails xmlns="http://warehouse.example.com/ws">
+       <productID>12345</productID>
+     </getProductDetails>
+   </soap:Body>
+</soap:Envelope>
+
+----- Пример ответа:
+
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+     <getProductDetailsResponse xmlns="http://warehouse.example.com/ws">
+       <getProductDetailsResult>
+         <productID>12345</productID>
+         <productName>Стакан граненый</productName>
+         <description>Стакан граненый. 250 мл.</description>
+         <price>9.95</price>
+         <currency>
+             <code>840</code>
+             <alpha3>USD</alpha3>
+             <sign>$</sign>
+             <name>US dollar</name>
+             <accuracy>2</accuracy>
+         </currency>
+         <inStock>true</inStock>
+       </getProductDetailsResult>
+     </getProductDetailsResponse>
+   </soap:Body>
+</soap:Envelope>
+
+
+
