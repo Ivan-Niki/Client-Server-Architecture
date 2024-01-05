@@ -171,10 +171,17 @@ Connection closed by foreign host.
 
 
 
-Заголовок Set-Cookie
+--> Заголовок Set-Cookie
 Когда веб-сайт хочет установить или обновить файл cookie в вашем браузере, он будет использовать этот header.
-Например:
+-- Например:
 Set-Cookie: skin=noskin; path=/; domain=.amazon.com; expires=Sun, 29-Nov-2009 21:42:28 GMT
 Set-Cookie: session-id=120-7333518-8165026; path=/; domain=.amazon.com; expires=Sat Feb 27 08:00:00 2010 GMT
 
 Каждый файл cookie отправляется как отдельный header.
+
+
+
+--> Заголовок Last-Modified
+Как следует из названия, этот header указывает дату последнего изменения документа в формате GMT:
+-- Например:
+Last-Modified: Sat, 28 Nov 2009 03:50:37 GMT
