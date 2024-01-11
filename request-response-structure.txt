@@ -170,7 +170,6 @@ Done!
 Connection closed by foreign host.
 
 
-
 --> Заголовок Set-Cookie
 Когда веб-сайт хочет установить или обновить файл cookie в вашем браузере, он будет использовать этот header.
 -- Например:
@@ -178,7 +177,6 @@ Set-Cookie: skin=noskin; path=/; domain=.amazon.com; expires=Sun, 29-Nov-2009 21
 Set-Cookie: session-id=120-7333518-8165026; path=/; domain=.amazon.com; expires=Sat Feb 27 08:00:00 2010 GMT
 
 Каждый файл cookie отправляется как отдельный header.
-
 
 
 --> Заголовок Last-Modified
